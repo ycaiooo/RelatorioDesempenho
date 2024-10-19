@@ -1,0 +1,91 @@
+﻿<Window x:Class="RelatorioDesempenho.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RelatorioDesempenho"
+        mc:Ignorable="d"
+        Title="Relatório de Desempenho" Height="900" Width="1600" Background="#F5F5F5">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Cabeçalho do Relatório -->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="10,-3,0,43">
+            <Image Source="C:\Users\ycaio\Downloads\logo BlueFarm fundo sem nome.png" Width="44" Height="44"/>
+            <TextBlock FontSize="32" FontWeight="Bold" Foreground="#333" 
+            VerticalAlignment="Center" Width="423"><Run Language="pt-br" Text="  "/><Run Text="Relatório de Desempenho"/></TextBlock>
+        </StackPanel>
+
+        <!-- Tabela de Desempenho -->
+        <DataGrid Grid.Row="1" 
+                  Name="dataGridDesempenho" 
+                  AutoGenerateColumns="False" 
+                  CanUserAddRows="False" 
+                  Margin="0,40,0,10"
+                  Background="White" 
+                  BorderBrush="#BDC3C7" 
+                  BorderThickness="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Produto" Binding="{Binding Produto}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="Foreground" Value="#34495E"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <!-- Tamanho da fonte aumentado -->
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Quantidade Vendida" Binding="{Binding QuantidadeVendida}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="Foreground" Value="#34495E"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <!-- Tamanho da fonte aumentado -->
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Receita" Binding="{Binding Receita}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="Foreground" Value="#34495E"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <!-- Tamanho da fonte aumentado -->
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Data da Venda" Binding="{Binding DataVenda}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="Foreground" Value="#34495E"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <!-- Tamanho da fonte aumentado -->
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Botão para Gerar Relatório -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,10,0,0">
+            <Button Content="Gerar Relatório" 
+                    Width="200" 
+                    Height="40" 
+                    Background="#2196F3" 
+                    Foreground="White" 
+                    FontSize="16" 
+                    FontWeight="Bold"/>
+        </StackPanel>
+    </Grid>
+</Window>
